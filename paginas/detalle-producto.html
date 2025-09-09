@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalle de Producto - No Hay Excusa</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav>
+      <h1>NOHAYEXCUSA.CL</h1>
+      <ul>
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="nosotros.html">Quiénes somos</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="carrito.html"><i class="fas fa-shopping-cart"></i> Carrito</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contenido de la página de detalle de producto -->
+  <section id="detalle-producto-section">
+    <div id="detalle-producto-container">
+      <!-- El detalle del producto se renderizará aquí -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 NOHAYEXCUSA.CL - Todos los derechos reservados</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/main.js"></script>
+  <script src="../js/validacion.js"></script>
+  <script src="../js/productos.js"></script>
+  <script>
+    // Lógica para cargar el detalle del producto
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const productoId = parseInt(urlParams.get('id'));
+      
+      const producto = productos.find(p => p.id === productoId);
+      const container = document.getElementById('detalle-producto-container');
+
+      if (producto) {
+        container.innerHTML = `
+          <div class="product-detail-card">
+            <img src="${producto.imagen}" alt="Imagen de ${producto.nombre}" />
+            <div>
+              <h2>${producto.nombre}</h2>
+              <p>Precio: <strong>$${producto.precio.toLocaleString()}</strong></p>
+              <p>Descripción: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <button class="add-to-cart-btn" data-id="${producto.id}">Añadir al carrito</button>
+            </div>
+          </div>
+        `;
+      } else {
+        container.innerHTML = '<p>Producto no encontrado.</p>';
+      }
+    });
+  </script>
+</body>
+</html>
