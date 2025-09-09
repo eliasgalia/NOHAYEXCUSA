@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOHAYEXCUSA.CL</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav>
+      <h1>NOHAYEXCUSA.CL</h1>
+      <ul>
+        <li><a href="#home">Inicio</a></li>
+        <li><a href="#about">Quiénes somos</a></li>
+        <li><a href="#planes">Planes</a></li>
+        <li><a href="#test">Test</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="#login">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <h2>No hay excusas, empieza hoy tu transformación</h2>
+    <p>Planes de entrenamiento y alimentación adaptados a tus objetivos</p>
+    <a href="#planes" class="btn">Ver planes</a>
+  </section>
+
+  <!-- Quiénes somos -->
+  <section id="about">
+    <h2>Quiénes Somos</h2>
+    <p>
+      Somos una comunidad enfocada en mejorar tu vida con rutinas efectivas, 
+      alimentación saludable y motivación constante. 
+      Nuestro objetivo: que logres resultados reales, sin excusas.
+    </p>
+  </section>
+
+  <!-- Planes -->
+  <section id="planes">
+    <h2>Nuestros Planes</h2>
+    <div class="planes-container">
+      <div class="plan">
+        <h3>Plan Básico</h3>
+        <p>Rutinas de entrenamiento simples</p>
+        <p><strong>$9.990/mes</strong></p>
+        <button>Suscribirme</button>
+      </div>
+      <div class="plan">
+        <h3>Plan Intermedio</h3>
+        <p>Rutinas + Alimentación</p>
+        <p><strong>$19.990/mes</strong></p>
+        <button>Suscribirme</button>
+      </div>
+      <div class="plan">
+        <h3>Plan Premium</h3>
+        <p>Rutinas + Alimentación + Seguimiento</p>
+        <p><strong>$29.990/mes</strong></p>
+        <button>Suscribirme</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Test -->
+  <section id="test">
+    <h2>Descubre tu plan ideal</h2>
+    <form id="testForm">
+      <label>¿Cuál es tu objetivo principal?</label>
+      <select>
+        <option>Bajar grasa</option>
+        <option>Ganar masa muscular</option>
+        <option>Mantenerme saludable</option>
+      </select>
+
+      <label>¿Cuántos días a la semana puedes entrenar?</label>
+      <select>
+        <option>2-3</option>
+        <option>4-5</option>
+        <option>6+</option>
+      </select>
+
+      <label>¿Nivel de experiencia?</label>
+      <select>
+        <option>Principiante</option>
+        <option>Intermedio</option>
+        <option>Avanzado</option>
+      </select>
+
+      <button type="submit">Recomendar Plan</button>
+    </form>
+    <div id="resultadoTest"></div>
+  </section>
+
+  <!-- Login/Registro -->
+  <section id="login">
+    <h2>Registro / Login</h2>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Usuario" required>
+      <input type="password" id="password" placeholder="Contraseña" required>
+      <button type="submit">Ingresar</button>
+    </form>
+    <p id="loginMsg"></p>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <p>Correo: contacto@nohayexcusa.cl</p>
+    <p>Teléfono: +56 9 1234 5678</p>
+    <p>Dirección: Av. Siempre Viva 123, Santiago, Chile</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 NOHAYEXCUSA.CL - Todos los derechos reservados</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

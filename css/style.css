@@ -1,0 +1,68 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #111;
+  color: #eee;
+}
+header {
+  background: #000;
+  padding: 1rem;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav h1 {
+  color: #0f0;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+.hero {
+  text-align: center;
+  padding: 4rem;
+  background: url('../img/fitness-bg.jpg') center/cover no-repeat;
+}
+.hero h2 {
+  font-size: 2rem;
+  color: #0f0;
+}
+.btn {
+  background: #0f0;
+  color: #000;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+}
+section {
+  padding: 2rem;
+  text-align: center;
+}
+.planes-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+.plan {
+  background: #222;
+  padding: 1.5rem;
+  border-radius: 10px;
+  width: 250px;
+}
+.plan h3 {
+  color: #0f0;
+}
+footer {
+  background: #000;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
