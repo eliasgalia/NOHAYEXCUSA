@@ -88,6 +88,7 @@ section h2 {
     border-radius: 5px;
     cursor: pointer;
     border: none;
+    transition: background-color 0.3s ease;
 }
 
 .btn:hover {
@@ -107,15 +108,26 @@ section h2 {
     padding: 1rem;
     border-radius: 8px;
     text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .product-card img {
-    max-width: 100%;
-    height: auto;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
     border-radius: 8px;
+    border: 2px solid #555;
 }
 
-.product-card button {
+.product-card h3 {
+    margin: 1rem 0 0.5rem;
+}
+
+.product-card p {
+    margin: 0 0 1rem;
+}
+
+.add-to-cart-btn {
     background-color: #e53935;
     color: #fff;
     padding: 10px 20px;
@@ -125,7 +137,7 @@ section h2 {
     margin-top: 10px;
 }
 
-.product-card button:hover {
+.add-to-cart-btn:hover {
     background-color: #c62828;
 }
 
@@ -148,6 +160,34 @@ section h2 {
     width: 80px;
     height: 80px;
     border-radius: 5px;
+    object-fit: cover;
+}
+
+.item-details {
+    flex-grow: 1;
+}
+
+.item-details h4 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.item-details p {
+    margin: 0.2rem 0;
+}
+
+.item-actions button {
+    background-color: #c62828;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.item-actions button:hover {
+    background-color: #b71c1c;
 }
 
 .carrito-total {
@@ -202,6 +242,7 @@ textarea {
     color: #4CAF50;
     font-size: 1rem;
     margin-top: 1rem;
+    text-align: center;
 }
 
 .login-msg {

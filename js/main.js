@@ -21,6 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const cartCountSpan = document.getElementById('cart-count');
     const contactForm = document.getElementById('contactForm');
     const contactSuccessMsg = document.getElementById('contact-success-msg');
+    const confirmarCompraBtn = document.getElementById('confirmar-compra-btn');
+    const confirmacionCompraMsg = document.getElementById('confirmacion-compra-msg');
 
     function renderizarProductos() {
         if (productList) {
@@ -29,10 +31,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 const productCard = document.createElement('div');
                 productCard.className = 'product-card';
                 productCard.innerHTML = `
-                    <img src="${producto.imagen}" alt="Imagen del producto ${producto.nombre}" onerror="this.onerror=null;this.src='https://placehold.co/250x250/000000/FFFFFF?text=Imagen+no+encontrada';"/>
+                    <img src="${producto.imagen}" alt="Imagen del producto ${producto.nombre}" onerror="this.onerror=null;this.src='https://placehold.co/1080x1080/000000/FFFFFF?text=Imagen+no+encontrada';"/>
                     <h3>${producto.nombre}</h3>
                     <p><strong>$${producto.precio.toLocaleString()}</strong></p>
-                    <button class="add-to-cart-btn" data-id="${producto.id}">Añadir al carrito</button>
+                    <button class="add-to-cart-btn btn" data-id="${producto.id}">Añadir al carrito</button>
                 `;
                 productList.appendChild(productCard);
             });
@@ -46,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const blogPostCard = document.createElement('div');
                 blogPostCard.className = 'blog-post-card';
                 blogPostCard.innerHTML = `
-                    <img src="${post.imagen}" alt="Imagen del blog post ${post.titulo}" onerror="this.onerror=null;this.src='https://placehold.co/250x250/000000/FFFFFF?text=Imagen+no+encontrada';"/>
+                    <img src="${post.imagen}" alt="Imagen del blog post ${post.titulo}" onerror="this.onerror=null;this.src='https://placehold.co/1080x1080/000000/FFFFFF?text=Imagen+no+encontrada';"/>
                     <h3>${post.titulo}</h3>
                     <p>${post.descripcion}</p>
                 `;
@@ -65,15 +67,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 carrito.push({ ...producto, cantidad: 1 });
             }
             guardarCarrito();
-            alert(`${producto.nombre} ha sido añadido al carrito.`);
+            showCustomAlert(`${producto.nombre} ha sido añadido al carrito.`);
         }
     }
 
     function guardarCarrito() {
         localStorage.setItem('carrito', JSON.stringify(carrito));
         actualizarContadorCarrito();
+        renderizarCarrito();
     }
-    
+
     function actualizarContadorCarrito() {
         const totalItems = carrito.reduce((total, item) => total + item.cantidad, 0);
         if (cartCountSpan) {
@@ -81,11 +84,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function eliminarDelCarrito(productoId) {
+        carrito = carrito.filter(item => item.id !== productoId);
+        guardarCarrito();
+        showCustomAlert('Producto eliminado del carrito.');
+    }
+
     function renderizarCarrito() {
         if (carritoContainer) {
             carritoContainer.innerHTML = '';
             if (carrito.length === 0) {
                 carritoContainer.innerHTML = '<p>El carrito de compras está vacío.</p>';
+                if (totalCarritoSpan) {
+                    totalCarritoSpan.textContent = `$0`;
+                }
             } else {
                 let total = 0;
                 carrito.forEach(item => {
@@ -94,10 +106,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     itemDiv.className = 'carrito-item';
                     itemDiv.innerHTML = `
                         <img src="${item.imagen}" alt="${item.nombre}" />
-                        <div>
+                        <div class="item-details">
                             <h4>${item.nombre}</h4>
                             <p>Precio: $${item.precio.toLocaleString()}</p>
                             <p>Cantidad: ${item.cantidad}</p>
+                        </div>
+                        <div class="item-actions">
+                            <button class="remove-from-cart-btn" data-id="${item.id}">Eliminar</button>
                         </div>
                     `;
                     carritoContainer.appendChild(itemDiv);
@@ -169,12 +184,63 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    function confirmarCompra() {
+        if (carrito.length === 0) {
+            confirmacionCompraMsg.textContent = 'El carrito está vacío. Añade productos para comprar.';
+            confirmacionCompraMsg.style.color = '#e53935';
+        } else {
+            carrito = [];
+            guardarCarrito();
+            confirmacionCompraMsg.textContent = '¡Compra confirmada con éxito! Revisa tu correo para más detalles.';
+            confirmacionCompraMsg.style.color = '#4CAF50';
+        }
+    }
+
+    function showCustomAlert(message) {
+        const msgBox = document.createElement('div');
+        msgBox.textContent = message;
+        msgBox.style.cssText = `
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            z-index: 10000;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        `;
+        document.body.appendChild(msgBox);
+
+        setTimeout(() => {
+            msgBox.style.opacity = '1';
+        }, 10);
+
+        setTimeout(() => {
+            msgBox.style.opacity = '0';
+            setTimeout(() => {
+                document.body.removeChild(msgBox);
+            }, 500);
+        }, 2000);
+    }
+    
     document.addEventListener('click', (e) => {
         if (e.target.classList.contains('add-to-cart-btn')) {
             const productId = parseInt(e.target.dataset.id);
             agregarAlCarrito(productId);
         }
+        if (e.target.classList.contains('remove-from-cart-btn')) {
+            const productId = parseInt(e.target.dataset.id);
+            eliminarDelCarrito(productId);
+        }
     });
+
+    if (confirmarCompraBtn) {
+        confirmarCompraBtn.addEventListener('click', confirmarCompra);
+    }
 
     renderizarProductos();
     renderizarBlog();
