@@ -10,7 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
   
   const emailRegex = /^[a-zA-Z0-9._%+-]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$/;
 
+<<<<<<< HEAD
     function validateEmail() {
+=======
+ 
+  function validateEmail() {
+>>>>>>> 175906db0d364c13d4d68cfee665a2af92d69f08
     const v = emailInput.value.trim();
     if (!v) {
       errorEmail.textContent = 'El correo es requerido.';
@@ -49,10 +54,17 @@ document.addEventListener('DOMContentLoaded', () => {
     return true;
   }
 
+<<<<<<< HEAD
     emailInput.addEventListener('input', validateEmail);
   passInput.addEventListener('input', validatePassword);
 
  
+=======
+  emailInput.addEventListener('input', validateEmail);
+  passInput.addEventListener('input', validatePassword);
+
+
+>>>>>>> 175906db0d364c13d4d68cfee665a2af92d69f08
   function loadUsers() {
     try {
       return JSON.parse(localStorage.getItem('nhu_users')) || [];
@@ -64,7 +76,12 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('nhu_users', JSON.stringify(users));
   }
 
+<<<<<<< HEAD
     form.addEventListener('submit', (e) => {
+=======
+  
+  form.addEventListener('submit', (e) => {
+>>>>>>> 175906db0d364c13d4d68cfee665a2af92d69f08
     e.preventDefault();
 
     const okEmail = validateEmail();
@@ -84,7 +101,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const existing = users.find(u => u.email === email);
 
     if (existing) {
+<<<<<<< HEAD
       
+=======
+    
+>>>>>>> 175906db0d364c13d4d68cfee665a2af92d69f08
       if (existing.password === password) {
         localStorage.setItem('nhu_logged_user', JSON.stringify({ email, loggedAt: new Date().toISOString() }));
         loginMsg.textContent = 'Inicio de sesión exitoso. ¡Bienvenid@!';
@@ -96,10 +117,17 @@ document.addEventListener('DOMContentLoaded', () => {
         loginMsg.setAttribute('aria-live', 'polite');
       }
     } else {
+<<<<<<< HEAD
       
       users.push({
         email,
         password, // Nota: para la entrega está OK; no es seguro para producción
+=======
+  
+      users.push({
+        email,
+        password, 
+>>>>>>> 175906db0d364c13d4d68cfee665a2af92d69f08
         role: 'cliente',
         createdAt: new Date().toISOString()
       });
@@ -111,5 +139,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+<<<<<<< HEAD
 
+=======
+  // (Opcional) limpiezas para pruebas: descomenta si necesitas borrar datos en dev
+  // localStorage.removeItem('nhu_users');
+  // localStorage.removeItem('nhu_logged_user');
+>>>>>>> 175906db0d364c13d4d68cfee665a2af92d69f08
 });
