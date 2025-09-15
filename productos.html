@@ -1,34 +1,40 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Productos NOHAYEXCUSA.CL - Compra tu equipo y accesorios fitness." />
   <title>Productos - NOHAYEXCUSA.CL</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="images/logo.png" type="image/png">
 </head>
 <body>
   <header>
     <nav>
-      <a href="index.html">NOHAYEXCUSA.CL</a>
+      <a href="index.html" class="brand">
+        <img src="images/logo.png" alt="Logo NOHAYEXCUSA.CL" class="logo">
+        <span>NOHAYEXCUSA.CL</span>
+      </a>
       <ul>
         <li><a href="index.html">Inicio</a></li>
-        <li><a href="nosotros.html">Quiénes somos</a></li>
+        <li><a href="index.html#nosotros">Quiénes somos</a></li>
         <li><a href="productos.html">Productos</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="index.html#contacto">Contacto</a></li>
+        <li><a href="index.html#carrito"><i class="fas fa-shopping-cart"></i> Carrito (<span id="cart-count">0</span>)</a></li>
         <li><a href="login.html">Login / Registro</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <h1>Todos nuestros productos</h1>
-    <div id="product-list" class="productos-container"></div>
+    <h1>Productos</h1>
+    <div id="product-list"></div>
   </main>
 
   <footer>
-    <p>&copy; 2025 NOHAYEXCUSA.CL</p>
+    <p>&copy; 2025 NOHAYEXCUSA.CL - Todos los derechos reservados</p>
   </footer>
 
-  <script src="js/main.js" defer></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

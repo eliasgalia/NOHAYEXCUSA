@@ -1,56 +1,80 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registro - NO HAY EXCUSA</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Registro en NOHAYEXCUSA.CL - Crea tu cuenta para acceder a la tienda." />
+  <title>Registro - NOHAYEXCUSA.CL</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="images/logo.png" type="image/png">
 </head>
 <body>
   <header>
-    <nav class="navbar">
-      <a href="index.html" class="logo">
-        <img src="images/logo.png" alt="Logo de No Hay Excusa">
+    <nav>
+      <a href="index.html" class="brand">
+        <img src="images/logo.png" alt="Logo NOHAYEXCUSA.CL" class="logo">
+        <span>NOHAYEXCUSA.CL</span>
       </a>
-      <ul class="nav-links">
+      <ul>
         <li><a href="index.html">Inicio</a></li>
+        <li><a href="index.html#nosotros">Quiénes somos</a></li>
         <li><a href="productos.html">Productos</a></li>
-        <li><a href="blogs.html">Blogs</a></li>
-        <li><a href="nosotros.html">Nosotros</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-        <li><a href="login.html">Login</a></li>
+        <li><a href="index.html#contacto">Contacto</a></li>
+        <li><a href="login.html">Login / Registro</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <section class="form-section">
-      <h1>Crear cuenta</h1>
-      <form id="registerForm">
-        <div class="form-group">
-          <label for="reg-nombre">Nombre completo</label>
-          <input type="text" id="reg-nombre" name="nombre" required>
-        </div>
-        <div class="form-group">
-          <label for="reg-email">Correo electrónico</label>
-          <input type="email" id="reg-email" name="email" required>
-          <span class="error" id="error-reg-email"></span>
-        </div>
-        <div class="form-group">
-          <label for="reg-password">Contraseña</label>
-          <input type="password" id="reg-password" name="password" minlength="4" maxlength="10" required>
-          <span class="error" id="error-reg-pass"></span>
-        </div>
-        <button type="submit">Registrarse</button>
-      </form>
-      <p id="register-msg" class="register-msg"></p>
-    </section>
+    <h1>Registro</h1>
+    <form id="registerForm">
+      <label for="username">Nombre de usuario:</label>
+      <input type="text" id="username" maxlength="50" required>
+
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" maxlength="100" required>
+
+      <label for="password">Contraseña:</label>
+      <input type="password" id="password" maxlength="20" required>
+
+      <label for="confirmPassword">Confirmar contraseña:</label>
+      <input type="password" id="confirmPassword" maxlength="20" required>
+
+      <button type="submit" class="btn">Registrarse</button>
+    </form>
+    <div id="register-msg"></div>
   </main>
 
   <footer>
-    <p>&copy; 2025 NO HAY EXCUSA - Todos los derechos reservados.</p>
+    <p>&copy; 2025 NOHAYEXCUSA.CL - Todos los derechos reservados</p>
   </footer>
 
-  <script src="register.js"></script>
+  <script>
+    const registerForm = document.getElementById('registerForm');
+    const registerMsg = document.getElementById('register-msg');
+
+    registerForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const username = document.getElementById('username').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+
+      if (!username || !email || !password || !confirmPassword) {
+        registerMsg.textContent = 'Todos los campos son obligatorios';
+        registerMsg.style.color = '#e53935';
+        return;
+      }
+      if (password !== confirmPassword) {
+        registerMsg.textContent = 'Las contraseñas no coinciden';
+        registerMsg.style.color = '#e53935';
+        return;
+      }
+
+      registerMsg.textContent = '¡Registro exitoso!';
+      registerMsg.style.color = '#4CAF50';
+      registerForm.reset();
+    });
+  </script>
 </body>
 </html>

@@ -1,410 +1,275 @@
-<<<<<<< HEAD
-/* FUENTES Y RESET */
+/* ------------------------------
+  Estilos Generales
+--------------------------------*/
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-body {
-  font-family: 'Poppins', sans-serif;
-  background: #111;
-  color: #fff;
-  line-height: 1.6;
+  font-family: 'Arial', sans-serif;
 }
 
-/* NAVBAR */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  background: #000;
+body {
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ------------------------------
+  Header y Navegación
+--------------------------------*/
+header {
+  background-color: #fff;
+  border-bottom: 2px solid #e0e0e0;
+  padding: 10px 20px;
   position: sticky;
   top: 0;
-}
-.navbar .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #e63946;
-}
-.navbar ul {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
-.navbar ul li a {
-  text-decoration: none;
-  color: #fff;
-  font-weight: 500;
-}
-.navbar ul li a.btn {
-  background: #e63946;
-  padding: 8px 15px;
-  border-radius: 5px;
-}
-
-/* HERO */
-.hero {
-  text-align: center;
-  padding: 100px 20px;
-  background: url('../img/hero-fitness.jpg') center/cover no-repeat;
-}
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-}
-.btn-cta {
-  display: inline-block;
-  background: #e63946;
-  color: #fff;
-  padding: 12px 25px;
-  border-radius: 8px;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-/* PLANES */
-.planes {
-  padding: 60px 20px;
-  text-align: center;
-}
-.planes h2 {
-  font-size: 2rem;
-  margin-bottom: 40px;
-}
-.planes-container {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-.plan-card {
-  background: #1e1e1e;
-  padding: 30px;
-  border-radius: 12px;
-  width: 280px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-}
-.plan-card h3 {
-  margin-bottom: 15px;
-  color: #e63946;
-}
-.plan-card p {
-  margin-bottom: 10px;
-}
-.plan-card .precio {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin: 20px 0;
-}
-.plan-card .btn {
-  background: #e63946;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-}
-.plan-card.destacado {
-  border: 2px solid #e63946;
-  transform: scale(1.05);
-}
-
-/* FOOTER */
-footer {
-  background: #000;
-  text-align: center;
-  padding: 20px;
-  margin-top: 40px;
-}
-footer a {
-  color: #e63946;
-  text-decoration: none;
-=======
-body {
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    background-color: #111;
-    color: #fff;
-    line-height: 1.6;
-}
-
-header {
-    background-color: #000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+  z-index: 100;
 }
 
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-nav h1 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #e53935;
-    margin: 0;
+nav .brand {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+nav .brand img.logo {
+  width: 50px;
+  margin-right: 10px;
 }
 
 nav ul {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-    margin: 0;
-    padding: 0;
+  display: flex;
+  gap: 15px;
 }
 
 nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
 }
 
 nav ul li a:hover {
-    color: #e53935;
+  background-color: #e0e0e0;
 }
 
-section {
-    padding: 4rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
+/* ------------------------------
+  Main y Secciones
+--------------------------------*/
+main {
+  padding: 20px;
 }
 
-section h2 {
-    font-size: 2.5rem;
-    color: #e53935;
-    margin-bottom: 1rem;
+h1 {
+  margin-bottom: 20px;
+  text-align: center;
 }
 
-.hero {
-    text-align: center;
-    padding: 6rem 2rem;
-    background-color: #222;
-    color: #fff;
-}
-
-.hero h2 {
-    color: #fff;
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.hero p {
-    font-size: 1.2rem;
-}
-
-.btn {
-    display: inline-block;
-    background-color: #e53935;
-    color: #fff;
-    padding: 0.75rem 2rem;
-    text-decoration: none;
-    font-weight: 700;
-    border-radius: 5px;
-    cursor: pointer;
-    border: none;
-    transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-    background-color: #c62828;
-}
-
-.productos-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
+/* ------------------------------
+  Productos
+--------------------------------*/
+#product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
 }
 
 .product-card {
-    background-color: #333;
-    color: #fff;
-    padding: 1rem;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .product-card img {
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 8px;
-    border: 2px solid #555;
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 
 .product-card h3 {
-    margin: 1rem 0 0.5rem;
+  font-size: 1rem;
+  margin-bottom: 8px;
 }
 
 .product-card p {
-    margin: 0 0 1rem;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
-.add-to-cart-btn {
-    background-color: #e53935;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: 10px;
+.product-card button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.add-to-cart-btn:hover {
-    background-color: #c62828;
+.product-card button:hover {
+  background-color: #45a049;
 }
 
-.carrito-container {
-    text-align: left;
-    margin-top: 2rem;
+/* ------------------------------
+  Blog
+--------------------------------*/
+.blog-post-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.blog-post-card img {
+  width: 150px;
+  height: auto;
+  border-radius: 5px;
+}
+
+.blog-post-card h3 {
+  margin-bottom: 5px;
+}
+
+.blog-post-card p {
+  font-size: 0.9rem;
+}
+
+/* ------------------------------
+  Carrito
+--------------------------------*/
+#carrito-container {
+  margin-top: 20px;
 }
 
 .carrito-item {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    padding: 1rem;
-    background-color: #333;
-    border-radius: 8px;
-    margin-bottom: 1rem;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
 
 .carrito-item img {
-    width: 80px;
-    height: 80px;
-    border-radius: 5px;
-    object-fit: cover;
+  width: 80px;
+  border-radius: 5px;
 }
 
-.item-details {
-    flex-grow: 1;
+.carrito-item .item-details {
+  flex: 1;
 }
 
-.item-details h4 {
-    margin: 0;
-    font-size: 1.2rem;
+.carrito-item .item-actions button {
+  background-color: #e53935;
+  color: white;
+  border: none;
+  padding: 5px 8px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.item-details p {
-    margin: 0.2rem 0;
+.carrito-item .item-actions button:hover {
+  background-color: #d32f2f;
 }
 
-.item-actions button {
-    background-color: #c62828;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.9rem;
+/* ------------------------------
+  Formularios
+--------------------------------*/
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
 }
 
-.item-actions button:hover {
-    background-color: #b71c1c;
+form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
-.carrito-total {
-    text-align: right;
-    margin-top: 2rem;
-    font-size: 1.5rem;
-    font-weight: bold;
+form input, form textarea, form button {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
-.form-container {
-    max-width: 500px;
-    margin: 2rem auto;
-    background-color: #333;
-    padding: 2rem;
-    border-radius: 10px;
-    text-align: left;
-    color: #fff;
+form button {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-.form-group {
-    margin-bottom: 1.5rem;
+form button:hover {
+  background-color: #45a049;
 }
 
-label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"],
-textarea {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #555;
-    background-color: #222;
-    color: #fff;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-.error-msg {
-    color: #e53935;
-    font-size: 0.875rem;
-    display: block;
-    margin-top: 0.25rem;
-}
-
-.success-msg {
-    color: #4CAF50;
-    font-size: 1rem;
-    margin-top: 1rem;
-    text-align: center;
-}
-
-.login-msg {
-    text-align: center;
-    font-weight: bold;
-}
-
-.team-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.team-member {
-    background-color: #333;
-    color: #fff;
-    padding: 2rem;
-    border-radius: 10px;
-    flex: 1 1 250px;
-    text-align: center;
-}
-
-.team-member img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 1rem;
-}
-
+/* ------------------------------
+  Footer
+--------------------------------*/
 footer {
-    text-align: center;
-    padding: 1.5rem;
-    background-color: #000;
-    color: #fff;
->>>>>>> 175906db0d364c13d4d68cfee665a2af92d69f08
+  text-align: center;
+  padding: 15px;
+  margin-top: 30px;
+  background-color: #fff;
+  border-top: 2px solid #e0e0e0;
+  font-size: 0.9rem;
+}
+
+/* ------------------------------
+  Mensajes de éxito/error
+--------------------------------*/
+#contact-success-msg, #register-msg, #confirmacion-compra-msg {
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* ------------------------------
+  Responsivo
+--------------------------------*/
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .blog-post-card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .blog-post-card img {
+    width: 100%;
+    max-width: 300px;
+  }
 }
